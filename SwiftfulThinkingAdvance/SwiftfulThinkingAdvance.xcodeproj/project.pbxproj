@@ -14,6 +14,7 @@
 		B1A578CF2754C9E300942395 /* SwiftfulThinkingAdvanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A578CE2754C9E300942395 /* SwiftfulThinkingAdvanceUITests.swift */; };
 		B1A578D12754C9E300942395 /* SwiftfulThinkingAdvanceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A578D02754C9E300942395 /* SwiftfulThinkingAdvanceUITestsLaunchTests.swift */; };
 		B1F43B0C2754FE0700166360 /* ViewModifierBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F43B0B2754FE0700166360 /* ViewModifierBootcamp.swift */; };
+		B1F43B0E2755057D00166360 /* ButtonStyleBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F43B0D2755057D00166360 /* ButtonStyleBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		B1A578CE2754C9E300942395 /* SwiftfulThinkingAdvanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulThinkingAdvanceUITests.swift; sourceTree = "<group>"; };
 		B1A578D02754C9E300942395 /* SwiftfulThinkingAdvanceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulThinkingAdvanceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B1F43B0B2754FE0700166360 /* ViewModifierBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifierBootcamp.swift; sourceTree = "<group>"; };
+		B1F43B0D2755057D00166360 /* ButtonStyleBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				B1A578B32754C9E200942395 /* SwiftfulThinkingAdvanceApp.swift */,
 				B1F43B0B2754FE0700166360 /* ViewModifierBootcamp.swift */,
+				B1F43B0D2755057D00166360 /* ButtonStyleBootcamp.swift */,
 				B1A578B72754C9E300942395 /* Assets.xcassets */,
 				B1A578B92754C9E300942395 /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F43B0E2755057D00166360 /* ButtonStyleBootcamp.swift in Sources */,
 				B1F43B0C2754FE0700166360 /* ViewModifierBootcamp.swift in Sources */,
 				B1A578B42754C9E200942395 /* SwiftfulThinkingAdvanceApp.swift in Sources */,
 			);
