@@ -16,6 +16,7 @@
 		B1F43B0C2754FE0700166360 /* ViewModifierBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F43B0B2754FE0700166360 /* ViewModifierBootcamp.swift */; };
 		B1F43B0E2755057D00166360 /* ButtonStyleBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F43B0D2755057D00166360 /* ButtonStyleBootcamp.swift */; };
 		B1F43B102756133C00166360 /* AnyTransitionBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F43B0F2756133C00166360 /* AnyTransitionBootcamp.swift */; };
+		B1F43B122757908700166360 /* MatchedGeometryEffectBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F43B112757908700166360 /* MatchedGeometryEffectBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		B1F43B0B2754FE0700166360 /* ViewModifierBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifierBootcamp.swift; sourceTree = "<group>"; };
 		B1F43B0D2755057D00166360 /* ButtonStyleBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleBootcamp.swift; sourceTree = "<group>"; };
 		B1F43B0F2756133C00166360 /* AnyTransitionBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTransitionBootcamp.swift; sourceTree = "<group>"; };
+		B1F43B112757908700166360 /* MatchedGeometryEffectBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeometryEffectBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				B1F43B0B2754FE0700166360 /* ViewModifierBootcamp.swift */,
 				B1F43B0D2755057D00166360 /* ButtonStyleBootcamp.swift */,
 				B1F43B0F2756133C00166360 /* AnyTransitionBootcamp.swift */,
+				B1F43B112757908700166360 /* MatchedGeometryEffectBootcamp.swift */,
 				B1A578B72754C9E300942395 /* Assets.xcassets */,
 				B1A578B92754C9E300942395 /* Preview Content */,
 			);
@@ -267,6 +270,7 @@
 				B1F43B0C2754FE0700166360 /* ViewModifierBootcamp.swift in Sources */,
 				B1F43B102756133C00166360 /* AnyTransitionBootcamp.swift in Sources */,
 				B1A578B42754C9E200942395 /* SwiftfulThinkingAdvanceApp.swift in Sources */,
+				B1F43B122757908700166360 /* MatchedGeometryEffectBootcamp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
