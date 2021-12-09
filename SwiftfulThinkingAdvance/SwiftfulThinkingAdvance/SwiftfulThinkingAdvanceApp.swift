@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftfulThinkingAdvanceApp: App {
     var body: some Scene {
         WindowGroup {
-            AppTabbarView()
+            AppNavBarView()
         }
     }
 }
