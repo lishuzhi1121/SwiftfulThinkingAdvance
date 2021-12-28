@@ -25,6 +25,7 @@
 		B1A578CF2754C9E300942395 /* SwiftfulThinkingAdvanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A578CE2754C9E300942395 /* SwiftfulThinkingAdvanceUITests.swift */; };
 		B1A578D12754C9E300942395 /* SwiftfulThinkingAdvanceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A578D02754C9E300942395 /* SwiftfulThinkingAdvanceUITestsLaunchTests.swift */; };
 		B1AFA6F527621B480065444C /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFA6F427621B480065444C /* AppNavBarView.swift */; };
+		B1BCDD09277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */; };
 		B1CA624C275DE2AF00820867 /* PreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA624B275DE2AF00820867 /* PreferenceKeyBootcamp.swift */; };
 		B1CA624E275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA624D275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift */; };
 		B1CA6251275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA6250275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift */; };
@@ -81,6 +82,7 @@
 		B1A578CE2754C9E300942395 /* SwiftfulThinkingAdvanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulThinkingAdvanceUITests.swift; sourceTree = "<group>"; };
 		B1A578D02754C9E300942395 /* SwiftfulThinkingAdvanceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulThinkingAdvanceUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B1AFA6F427621B480065444C /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
+		B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRepresentableBootcamp.swift; sourceTree = "<group>"; };
 		B1CA624B275DE2AF00820867 /* PreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
 		B1CA624D275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryPreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
 		B1CA6250275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetPreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
@@ -168,10 +170,11 @@
 				B166C44B2758F61300C8B771 /* CustomCurvesBootcamp.swift */,
 				B166C44D275A3F2E00C8B771 /* AnimatableDataBootcamp.swift */,
 				B166C44F275A4F0000C8B771 /* ViewBuilderBootcamp.swift */,
-				B1EBAF552764A18700621BC5 /* UIViewRepresentableBootcamp.swift */,
 				B1CA624F275DEEBE00820867 /* PreferenceKeyBootcamp */,
 				B1CA625C275F2ECC00820867 /* CustomTabbar */,
 				B12654892762376D00E07D26 /* CustomNavBar */,
+				B1EBAF552764A18700621BC5 /* UIViewRepresentableBootcamp.swift */,
+				B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */,
 				B1A578B72754C9E300942395 /* Assets.xcassets */,
 				B1A578B92754C9E300942395 /* Preview Content */,
 			);
@@ -378,6 +381,7 @@
 				B1CA6253275E2A7100820867 /* AppTabbarView.swift in Sources */,
 				B1098B8B275F39EF00E311AE /* ZZTabBarItemsPreferenceKey.swift in Sources */,
 				B1CA625F275F30CF00820867 /* ZZTabBar.swift in Sources */,
+				B1BCDD09277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift in Sources */,
 				B1AFA6F527621B480065444C /* AppNavBarView.swift in Sources */,
 				B1CA624C275DE2AF00820867 /* PreferenceKeyBootcamp.swift in Sources */,
 				B1265484276226F100E07D26 /* CustomNavBarContainerView.swift in Sources */,
@@ -558,6 +562,7 @@
 				DEVELOPMENT_TEAM = 3Q44Z5857F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Usage!!!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -587,6 +592,7 @@
 				DEVELOPMENT_TEAM = 3Q44Z5857F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Usage!!!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
