@@ -27,6 +27,7 @@
 		B1AFA6F527621B480065444C /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFA6F427621B480065444C /* AppNavBarView.swift */; };
 		B1BCDD09277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */; };
 		B1BCDD0B277B3BC4002E5F4F /* ProtocolsBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BCDD0A277B3BC4002E5F4F /* ProtocolsBootcamp.swift */; };
+		B1BCDD0D277B47AD002E5F4F /* DependencyInjectionBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BCDD0C277B47AD002E5F4F /* DependencyInjectionBootcamp.swift */; };
 		B1CA624C275DE2AF00820867 /* PreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA624B275DE2AF00820867 /* PreferenceKeyBootcamp.swift */; };
 		B1CA624E275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA624D275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift */; };
 		B1CA6251275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA6250275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift */; };
@@ -85,6 +86,7 @@
 		B1AFA6F427621B480065444C /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
 		B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRepresentableBootcamp.swift; sourceTree = "<group>"; };
 		B1BCDD0A277B3BC4002E5F4F /* ProtocolsBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsBootcamp.swift; sourceTree = "<group>"; };
+		B1BCDD0C277B47AD002E5F4F /* DependencyInjectionBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionBootcamp.swift; sourceTree = "<group>"; };
 		B1CA624B275DE2AF00820867 /* PreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
 		B1CA624D275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryPreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
 		B1CA6250275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetPreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				B1EBAF552764A18700621BC5 /* UIViewRepresentableBootcamp.swift */,
 				B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */,
 				B1BCDD0A277B3BC4002E5F4F /* ProtocolsBootcamp.swift */,
+				B1BCDD0C277B47AD002E5F4F /* DependencyInjectionBootcamp.swift */,
 				B1A578B72754C9E300942395 /* Assets.xcassets */,
 				B1A578B92754C9E300942395 /* Preview Content */,
 			);
@@ -375,6 +378,7 @@
 			files = (
 				B12654862762290200E07D26 /* CustomNavLink.swift in Sources */,
 				B1CA6251275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift in Sources */,
+				B1BCDD0D277B47AD002E5F4F /* DependencyInjectionBootcamp.swift in Sources */,
 				B1F43B0E2755057D00166360 /* ButtonStyleBootcamp.swift in Sources */,
 				B126548827622BAB00E07D26 /* CustomNavBarPreferenceKey.swift in Sources */,
 				B1F43B0C2754FE0700166360 /* ViewModifierBootcamp.swift in Sources */,
