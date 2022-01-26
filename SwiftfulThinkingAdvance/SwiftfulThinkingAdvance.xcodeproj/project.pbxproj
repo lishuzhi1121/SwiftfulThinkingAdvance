@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B100B07A27A1315C0040A9A7 /* NewMockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B07927A1315C0040A9A7 /* NewMockDataService.swift */; };
+		B100B07C27A131A90040A9A7 /* NewMockDataService_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B07B27A131A90040A9A7 /* NewMockDataService_Tests.swift */; };
 		B1098B89275F376100E311AE /* ZZTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1098B88275F376100E311AE /* ZZTabView.swift */; };
 		B1098B8B275F39EF00E311AE /* ZZTabBarItemsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1098B8A275F39EF00E311AE /* ZZTabBarItemsPreferenceKey.swift */; };
 		B126547E27621CE600E07D26 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B126547D27621CE600E07D26 /* CustomNavBarView.swift */; };
@@ -38,6 +40,9 @@
 		B1CA625B275E425400820867 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA625A275E425400820867 /* TabBarItem.swift */; };
 		B1CA625F275F30CF00820867 /* ZZTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA625E275F30CF00820867 /* ZZTabBar.swift */; };
 		B1CA6261275F31B400820867 /* ZZTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA6260275F31B400820867 /* ZZTabBarItem.swift */; };
+		B1EB65B6279EA394007B0A8B /* UnitTestingBootcampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB65B5279EA394007B0A8B /* UnitTestingBootcampView.swift */; };
+		B1EB65B8279EA3AD007B0A8B /* UnitTestingBootcampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB65B7279EA3AD007B0A8B /* UnitTestingBootcampViewModel.swift */; };
+		B1EB65BA279EA768007B0A8B /* UnitTestingBootcampViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EB65B9279EA768007B0A8B /* UnitTestingBootcampViewModel_Tests.swift */; };
 		B1EBAF562764A18700621BC5 /* UIViewRepresentableBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EBAF552764A18700621BC5 /* UIViewRepresentableBootcamp.swift */; };
 		B1F43B0C2754FE0700166360 /* ViewModifierBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F43B0B2754FE0700166360 /* ViewModifierBootcamp.swift */; };
 		B1F43B0E2755057D00166360 /* ButtonStyleBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F43B0D2755057D00166360 /* ButtonStyleBootcamp.swift */; };
@@ -63,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B100B07927A1315C0040A9A7 /* NewMockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMockDataService.swift; sourceTree = "<group>"; };
+		B100B07B27A131A90040A9A7 /* NewMockDataService_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMockDataService_Tests.swift; sourceTree = "<group>"; };
 		B1098B88275F376100E311AE /* ZZTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZTabView.swift; sourceTree = "<group>"; };
 		B1098B8A275F39EF00E311AE /* ZZTabBarItemsPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZTabBarItemsPreferenceKey.swift; sourceTree = "<group>"; };
 		B126547D27621CE600E07D26 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
@@ -97,6 +104,9 @@
 		B1CA625A275E425400820867 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		B1CA625E275F30CF00820867 /* ZZTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZTabBar.swift; sourceTree = "<group>"; };
 		B1CA6260275F31B400820867 /* ZZTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZTabBarItem.swift; sourceTree = "<group>"; };
+		B1EB65B5279EA394007B0A8B /* UnitTestingBootcampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestingBootcampView.swift; sourceTree = "<group>"; };
+		B1EB65B7279EA3AD007B0A8B /* UnitTestingBootcampViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestingBootcampViewModel.swift; sourceTree = "<group>"; };
+		B1EB65B9279EA768007B0A8B /* UnitTestingBootcampViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestingBootcampViewModel_Tests.swift; sourceTree = "<group>"; };
 		B1EBAF552764A18700621BC5 /* UIViewRepresentableBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewRepresentableBootcamp.swift; sourceTree = "<group>"; };
 		B1F43B0B2754FE0700166360 /* ViewModifierBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifierBootcamp.swift; sourceTree = "<group>"; };
 		B1F43B0D2755057D00166360 /* ButtonStyleBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleBootcamp.swift; sourceTree = "<group>"; };
@@ -181,6 +191,7 @@
 				B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */,
 				B1BCDD0A277B3BC4002E5F4F /* ProtocolsBootcamp.swift */,
 				B1BCDD0C277B47AD002E5F4F /* DependencyInjectionBootcamp.swift */,
+				B1EB65B2279EA34E007B0A8B /* UnitTestingBootcamp */,
 				B1A578B72754C9E300942395 /* Assets.xcassets */,
 				B1A578B92754C9E300942395 /* Preview Content */,
 			);
@@ -199,6 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				B1A578C42754C9E300942395 /* SwiftfulThinkingAdvanceTests.swift */,
+				B1EB65B9279EA768007B0A8B /* UnitTestingBootcampViewModel_Tests.swift */,
+				B100B07B27A131A90040A9A7 /* NewMockDataService_Tests.swift */,
 			);
 			path = SwiftfulThinkingAdvanceTests;
 			sourceTree = "<group>";
@@ -244,6 +257,16 @@
 				B1098B8A275F39EF00E311AE /* ZZTabBarItemsPreferenceKey.swift */,
 			);
 			path = ZZVersion;
+			sourceTree = "<group>";
+		};
+		B1EB65B2279EA34E007B0A8B /* UnitTestingBootcamp */ = {
+			isa = PBXGroup;
+			children = (
+				B1EB65B5279EA394007B0A8B /* UnitTestingBootcampView.swift */,
+				B1EB65B7279EA3AD007B0A8B /* UnitTestingBootcampViewModel.swift */,
+				B100B07927A1315C0040A9A7 /* NewMockDataService.swift */,
+			);
+			path = UnitTestingBootcamp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +405,7 @@
 				B1F43B0E2755057D00166360 /* ButtonStyleBootcamp.swift in Sources */,
 				B126548827622BAB00E07D26 /* CustomNavBarPreferenceKey.swift in Sources */,
 				B1F43B0C2754FE0700166360 /* ViewModifierBootcamp.swift in Sources */,
+				B1EB65B8279EA3AD007B0A8B /* UnitTestingBootcampViewModel.swift in Sources */,
 				B126547E27621CE600E07D26 /* CustomNavBarView.swift in Sources */,
 				B1F43B102756133C00166360 /* AnyTransitionBootcamp.swift in Sources */,
 				B1098B89275F376100E311AE /* ZZTabView.swift in Sources */,
@@ -401,12 +425,14 @@
 				B1CA624E275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift in Sources */,
 				B1265482276225DC00E07D26 /* CustomNavView.swift in Sources */,
 				B1F43B122757908700166360 /* MatchedGeometryEffectBootcamp.swift in Sources */,
+				B100B07A27A1315C0040A9A7 /* NewMockDataService.swift in Sources */,
 				B1CA6255275E2DAA00820867 /* CustomTabbarView.swift in Sources */,
 				B166C44A2758ED4800C8B771 /* CustomShapesBootcamp.swift in Sources */,
 				B1CA6261275F31B400820867 /* ZZTabBarItem.swift in Sources */,
 				B166C44C2758F61300C8B771 /* CustomCurvesBootcamp.swift in Sources */,
 				B1EBAF562764A18700621BC5 /* UIViewRepresentableBootcamp.swift in Sources */,
 				B1CA6259275E3DD600820867 /* TabbarItemsPreferenceKey.swift in Sources */,
+				B1EB65B6279EA394007B0A8B /* UnitTestingBootcampView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +440,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1EB65BA279EA768007B0A8B /* UnitTestingBootcampViewModel_Tests.swift in Sources */,
 				B1A578C52754C9E300942395 /* SwiftfulThinkingAdvanceTests.swift in Sources */,
+				B100B07C27A131A90040A9A7 /* NewMockDataService_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
