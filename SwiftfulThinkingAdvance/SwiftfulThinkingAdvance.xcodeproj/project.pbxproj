@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B100B07A27A1315C0040A9A7 /* NewMockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B07927A1315C0040A9A7 /* NewMockDataService.swift */; };
 		B100B07C27A131A90040A9A7 /* NewMockDataService_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B07B27A131A90040A9A7 /* NewMockDataService_Tests.swift */; };
+		B100B07E27A13E740040A9A7 /* UITestingBootcampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100B07D27A13E740040A9A7 /* UITestingBootcampView.swift */; };
 		B1098B89275F376100E311AE /* ZZTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1098B88275F376100E311AE /* ZZTabView.swift */; };
 		B1098B8B275F39EF00E311AE /* ZZTabBarItemsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1098B8A275F39EF00E311AE /* ZZTabBarItemsPreferenceKey.swift */; };
 		B126547E27621CE600E07D26 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B126547D27621CE600E07D26 /* CustomNavBarView.swift */; };
@@ -30,6 +31,7 @@
 		B1BCDD09277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */; };
 		B1BCDD0B277B3BC4002E5F4F /* ProtocolsBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BCDD0A277B3BC4002E5F4F /* ProtocolsBootcamp.swift */; };
 		B1BCDD0D277B47AD002E5F4F /* DependencyInjectionBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BCDD0C277B47AD002E5F4F /* DependencyInjectionBootcamp.swift */; };
+		B1C8834B27B0EC7B00097C20 /* UITestingBootcampView_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8834A27B0EC7B00097C20 /* UITestingBootcampView_UITests.swift */; };
 		B1CA624C275DE2AF00820867 /* PreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA624B275DE2AF00820867 /* PreferenceKeyBootcamp.swift */; };
 		B1CA624E275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA624D275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift */; };
 		B1CA6251275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA6250275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift */; };
@@ -70,6 +72,7 @@
 /* Begin PBXFileReference section */
 		B100B07927A1315C0040A9A7 /* NewMockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMockDataService.swift; sourceTree = "<group>"; };
 		B100B07B27A131A90040A9A7 /* NewMockDataService_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMockDataService_Tests.swift; sourceTree = "<group>"; };
+		B100B07D27A13E740040A9A7 /* UITestingBootcampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingBootcampView.swift; sourceTree = "<group>"; };
 		B1098B88275F376100E311AE /* ZZTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZTabView.swift; sourceTree = "<group>"; };
 		B1098B8A275F39EF00E311AE /* ZZTabBarItemsPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZTabBarItemsPreferenceKey.swift; sourceTree = "<group>"; };
 		B126547D27621CE600E07D26 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 		B1BCDD08277B2CF6002E5F4F /* UIViewControllerRepresentableBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRepresentableBootcamp.swift; sourceTree = "<group>"; };
 		B1BCDD0A277B3BC4002E5F4F /* ProtocolsBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsBootcamp.swift; sourceTree = "<group>"; };
 		B1BCDD0C277B47AD002E5F4F /* DependencyInjectionBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionBootcamp.swift; sourceTree = "<group>"; };
+		B1C8834A27B0EC7B00097C20 /* UITestingBootcampView_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingBootcampView_UITests.swift; sourceTree = "<group>"; };
 		B1CA624B275DE2AF00820867 /* PreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
 		B1CA624D275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryPreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
 		B1CA6250275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetPreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				B1BCDD0A277B3BC4002E5F4F /* ProtocolsBootcamp.swift */,
 				B1BCDD0C277B47AD002E5F4F /* DependencyInjectionBootcamp.swift */,
 				B1EB65B2279EA34E007B0A8B /* UnitTestingBootcamp */,
+				B100B07D27A13E740040A9A7 /* UITestingBootcampView.swift */,
 				B1A578B72754C9E300942395 /* Assets.xcassets */,
 				B1A578B92754C9E300942395 /* Preview Content */,
 			);
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				B1A578CE2754C9E300942395 /* SwiftfulThinkingAdvanceUITests.swift */,
+				B1C8834A27B0EC7B00097C20 /* UITestingBootcampView_UITests.swift */,
 				B1A578D02754C9E300942395 /* SwiftfulThinkingAdvanceUITestsLaunchTests.swift */,
 			);
 			path = SwiftfulThinkingAdvanceUITests;
@@ -418,6 +424,7 @@
 				B1BCDD0B277B3BC4002E5F4F /* ProtocolsBootcamp.swift in Sources */,
 				B1265484276226F100E07D26 /* CustomNavBarContainerView.swift in Sources */,
 				B1A578B42754C9E200942395 /* SwiftfulThinkingAdvanceApp.swift in Sources */,
+				B100B07E27A13E740040A9A7 /* UITestingBootcampView.swift in Sources */,
 				B166C44E275A3F2E00C8B771 /* AnimatableDataBootcamp.swift in Sources */,
 				B1CA625B275E425400820867 /* TabBarItem.swift in Sources */,
 				B166C450275A4F0000C8B771 /* ViewBuilderBootcamp.swift in Sources */,
@@ -451,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A578CF2754C9E300942395 /* SwiftfulThinkingAdvanceUITests.swift in Sources */,
+				B1C8834B27B0EC7B00097C20 /* UITestingBootcampView_UITests.swift in Sources */,
 				B1A578D12754C9E300942395 /* SwiftfulThinkingAdvanceUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
