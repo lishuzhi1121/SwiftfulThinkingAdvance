@@ -21,6 +21,9 @@
 		B166C44C2758F61300C8B771 /* CustomCurvesBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B166C44B2758F61300C8B771 /* CustomCurvesBootcamp.swift */; };
 		B166C44E275A3F2E00C8B771 /* AnimatableDataBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B166C44D275A3F2E00C8B771 /* AnimatableDataBootcamp.swift */; };
 		B166C450275A4F0000C8B771 /* ViewBuilderBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B166C44F275A4F0000C8B771 /* ViewBuilderBootcamp.swift */; };
+		B1866F2E27BB9D1C00A8D930 /* CloudKitCRUDBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1866F2D27BB9D1C00A8D930 /* CloudKitCRUDBootcamp.swift */; };
+		B1866F3227BCA40700A8D930 /* TextFieldAlertBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1866F3127BCA40700A8D930 /* TextFieldAlertBootcamp.swift */; };
+		B1866F3827BD14CE00A8D930 /* ZZTextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1866F3727BD14CE00A8D930 /* ZZTextFieldAlert.swift */; };
 		B1A578B42754C9E200942395 /* SwiftfulThinkingAdvanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A578B32754C9E200942395 /* SwiftfulThinkingAdvanceApp.swift */; };
 		B1A578B82754C9E300942395 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A578B72754C9E300942395 /* Assets.xcassets */; };
 		B1A578BB2754C9E300942395 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A578BA2754C9E300942395 /* Preview Assets.xcassets */; };
@@ -34,6 +37,7 @@
 		B1C8834B27B0EC7B00097C20 /* UITestingBootcampView_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8834A27B0EC7B00097C20 /* UITestingBootcampView_UITests.swift */; };
 		B1C883B927B4EAB800097C20 /* AdvancedCombineBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C883B827B4EAB800097C20 /* AdvancedCombineBootcamp.swift */; };
 		B1C883BB27B65F4200097C20 /* FuturesBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C883BA27B65F4200097C20 /* FuturesBootcamp.swift */; };
+		B1C883BD27BB8F6600097C20 /* CloudKitBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C883BC27BB8F6600097C20 /* CloudKitBootcamp.swift */; };
 		B1CA624C275DE2AF00820867 /* PreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA624B275DE2AF00820867 /* PreferenceKeyBootcamp.swift */; };
 		B1CA624E275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA624D275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift */; };
 		B1CA6251275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CA6250275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift */; };
@@ -86,6 +90,9 @@
 		B166C44B2758F61300C8B771 /* CustomCurvesBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurvesBootcamp.swift; sourceTree = "<group>"; };
 		B166C44D275A3F2E00C8B771 /* AnimatableDataBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableDataBootcamp.swift; sourceTree = "<group>"; };
 		B166C44F275A4F0000C8B771 /* ViewBuilderBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderBootcamp.swift; sourceTree = "<group>"; };
+		B1866F2D27BB9D1C00A8D930 /* CloudKitCRUDBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCRUDBootcamp.swift; sourceTree = "<group>"; };
+		B1866F3127BCA40700A8D930 /* TextFieldAlertBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertBootcamp.swift; sourceTree = "<group>"; };
+		B1866F3727BD14CE00A8D930 /* ZZTextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZTextFieldAlert.swift; sourceTree = "<group>"; };
 		B1A578B02754C9E200942395 /* SwiftfulThinkingAdvance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulThinkingAdvance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A578B32754C9E200942395 /* SwiftfulThinkingAdvanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulThinkingAdvanceApp.swift; sourceTree = "<group>"; };
 		B1A578B72754C9E300942395 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +109,7 @@
 		B1C8834A27B0EC7B00097C20 /* UITestingBootcampView_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingBootcampView_UITests.swift; sourceTree = "<group>"; };
 		B1C883B827B4EAB800097C20 /* AdvancedCombineBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedCombineBootcamp.swift; sourceTree = "<group>"; };
 		B1C883BA27B65F4200097C20 /* FuturesBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuturesBootcamp.swift; sourceTree = "<group>"; };
+		B1C883BC27BB8F6600097C20 /* CloudKitBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitBootcamp.swift; sourceTree = "<group>"; };
 		B1CA624B275DE2AF00820867 /* PreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
 		B1CA624D275DEA5600820867 /* GeometryPreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryPreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
 		B1CA6250275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetPreferenceKeyBootcamp.swift; sourceTree = "<group>"; };
@@ -160,6 +168,17 @@
 			path = CustomNavBar;
 			sourceTree = "<group>";
 		};
+		B1866F2C27BB9D0000A8D930 /* CloudKitBootcamps */ = {
+			isa = PBXGroup;
+			children = (
+				B1C883BC27BB8F6600097C20 /* CloudKitBootcamp.swift */,
+				B1866F2D27BB9D1C00A8D930 /* CloudKitCRUDBootcamp.swift */,
+				B1866F3127BCA40700A8D930 /* TextFieldAlertBootcamp.swift */,
+				B1866F3727BD14CE00A8D930 /* ZZTextFieldAlert.swift */,
+			);
+			path = CloudKitBootcamps;
+			sourceTree = "<group>";
+		};
 		B1A578A72754C9E200942395 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +222,7 @@
 				B100B07D27A13E740040A9A7 /* UITestingBootcampView.swift */,
 				B1C883B827B4EAB800097C20 /* AdvancedCombineBootcamp.swift */,
 				B1C883BA27B65F4200097C20 /* FuturesBootcamp.swift */,
+				B1866F2C27BB9D0000A8D930 /* CloudKitBootcamps */,
 				B1A578B72754C9E300942395 /* Assets.xcassets */,
 				B1A578B92754C9E300942395 /* Preview Content */,
 			);
@@ -411,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1866F3227BCA40700A8D930 /* TextFieldAlertBootcamp.swift in Sources */,
 				B12654862762290200E07D26 /* CustomNavLink.swift in Sources */,
 				B1CA6251275DF13700820867 /* ScrollViewOffsetPreferenceKeyBootcamp.swift in Sources */,
 				B1BCDD0D277B47AD002E5F4F /* DependencyInjectionBootcamp.swift in Sources */,
@@ -432,6 +453,8 @@
 				B1A578B42754C9E200942395 /* SwiftfulThinkingAdvanceApp.swift in Sources */,
 				B100B07E27A13E740040A9A7 /* UITestingBootcampView.swift in Sources */,
 				B166C44E275A3F2E00C8B771 /* AnimatableDataBootcamp.swift in Sources */,
+				B1C883BD27BB8F6600097C20 /* CloudKitBootcamp.swift in Sources */,
+				B1866F2E27BB9D1C00A8D930 /* CloudKitCRUDBootcamp.swift in Sources */,
 				B1CA625B275E425400820867 /* TabBarItem.swift in Sources */,
 				B166C450275A4F0000C8B771 /* ViewBuilderBootcamp.swift in Sources */,
 				B1CA6257275E364500820867 /* CustomTabbarContainerView.swift in Sources */,
@@ -446,6 +469,7 @@
 				B1C883BB27B65F4200097C20 /* FuturesBootcamp.swift in Sources */,
 				B1C883B927B4EAB800097C20 /* AdvancedCombineBootcamp.swift in Sources */,
 				B1EBAF562764A18700621BC5 /* UIViewRepresentableBootcamp.swift in Sources */,
+				B1866F3827BD14CE00A8D930 /* ZZTextFieldAlert.swift in Sources */,
 				B1CA6259275E3DD600820867 /* TabbarItemsPreferenceKey.swift in Sources */,
 				B1EB65B6279EA394007B0A8B /* UnitTestingBootcampView.swift in Sources */,
 			);
@@ -620,6 +644,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,6 +675,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
