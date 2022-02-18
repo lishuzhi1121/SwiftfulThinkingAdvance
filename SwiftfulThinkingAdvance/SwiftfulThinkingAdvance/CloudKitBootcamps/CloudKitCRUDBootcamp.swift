@@ -10,15 +10,16 @@ import CloudKit
 
 struct FruitModel: Hashable {
     let name: String
+    let imageURL: URL?
     let record: CKRecord
 }
 
 class CloudKitCRUDBootcampViewModel: ObservableObject {
     @Published var text: String = ""
     @Published var fruits: [FruitModel] = [
-        FruitModel(name: "Apple", record: CKRecord(recordType: "Fruits")),
-        FruitModel(name: "Orange", record: CKRecord(recordType: "Fruits")),
-        FruitModel(name: "Bananer", record: CKRecord(recordType: "Fruits")),
+        FruitModel(name: "Apple", imageURL: nil, record: CKRecord(recordType: "Fruits")),
+        FruitModel(name: "Orange", imageURL: nil, record: CKRecord(recordType: "Fruits")),
+        FruitModel(name: "Bananer", imageURL: nil, record: CKRecord(recordType: "Fruits")),
     ]
     
     func addButtonPressed() {
@@ -31,7 +32,19 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
     private func addItem(name: String) {
         let newFruit = CKRecord(recordType: "Fruits")
         newFruit["name"] = name
-        saveItem(record: newFruit)
+        
+        guard
+            let image = UIImage(named: "background"),
+            let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("background.png"),
+            let data = image.pngData() else { return }
+        
+        do {
+            try data.write(to: url)
+            newFruit["image"] = CKAsset(fileURL: url)
+            saveItem(record: newFruit)
+        } catch let error {
+            print(error)
+        }
     }
     
     private func saveItem(record: CKRecord) {
@@ -39,7 +52,7 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
             print("RECORD: \(returnedRecord?.description ?? "")")
             print("ERROR: \(error?.localizedDescription ?? "")")
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 self?.text = ""
                 self?.fetchItems()
             }
@@ -66,7 +79,9 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
                 case .success(let record):
                     //record.creationDate
                     guard let fruit = record["name"] as? String else { return }
-                    let model = FruitModel(name: fruit, record: record)
+                    let imageAsset = record["image"] as? CKAsset
+                    let imageURL = imageAsset?.fileURL
+                    let model = FruitModel(name: fruit, imageURL: imageURL, record: record)
                     returnedItems.append(model)
                 case .failure(let error):
                     print("Error recordMatchedBlock: \(error)")
@@ -75,7 +90,9 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
         } else {
             queryOperation.recordFetchedBlock = { fetchedRecord in
                 guard let fruit = fetchedRecord["name"] as? String else { return }
-                let model = FruitModel(name: fruit, record: fetchedRecord)
+                let imageAsset = fetchedRecord["image"] as? CKAsset
+                let imageURL = imageAsset?.fileURL
+                let model = FruitModel(name: fruit, imageURL: imageURL, record: fetchedRecord)
                 returnedItems.append(model)
             }
         }
@@ -142,11 +159,21 @@ struct CloudKitCRUDBootcamp: View {
                 
                 List {
                     ForEach(vm.fruits, id: \.self) { fruitModel in
-                        Text(fruitModel.name)
-                            .onTapGesture {
-                                self.currentSelectModel = fruitModel
-                                self.isPresented.toggle()
+                        HStack {
+                            Text(fruitModel.name)
+                            
+                            if let imageURL = fruitModel.imageURL,
+                               let data = try? Data(contentsOf: imageURL),
+                               let image = UIImage(data: data) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .frame(width: 80, height: 80)
                             }
+                        }
+                        .onTapGesture {
+                            self.currentSelectModel = fruitModel
+                            self.isPresented.toggle()
+                        }
                     }
                     .onDelete(perform: vm.deleteItem)
                 }
