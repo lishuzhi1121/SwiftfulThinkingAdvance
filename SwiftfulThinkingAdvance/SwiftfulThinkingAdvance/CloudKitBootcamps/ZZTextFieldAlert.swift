@@ -76,7 +76,8 @@ struct ZZTextFieldAlertWrapper<Content: View>: UIViewControllerRepresentable {
             uiViewController.present(context.coordinator.alertController!, animated: true)
         }
         // dismiss
-        if !isPresented && uiViewController.presentedViewController == context.coordinator.alertController {
+        if !isPresented && uiViewController.presentedViewController != nil
+            && uiViewController.presentedViewController == context.coordinator.alertController {
             uiViewController.dismiss(animated: true)
         }
     }

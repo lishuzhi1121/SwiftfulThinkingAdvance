@@ -144,6 +144,51 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
         }
     }
     
+    
+    // MARK: - Notifications
+    
+    func subscribeButtonPressed() {
+        // 点击订阅时先请求通知授权
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
+            guard success else {
+                print(error ?? "Unknow Error.")
+                return
+            }
+            // 注册远程通知
+            DispatchQueue.main.async {
+                if !UIApplication.shared.isRegisteredForRemoteNotifications {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+            // 订阅通知
+            let predicate = NSPredicate(value: true)
+            let subscription = CKQuerySubscription(recordType: "Fruits", predicate: predicate, subscriptionID: "fruit_add_to_database", options: .firesOnRecordCreation)
+            let notificationInfo = CKSubscription.NotificationInfo()
+            notificationInfo.title = "There's a new fruit!"
+            notificationInfo.alertBody = "Open the app to check your fruits."
+            notificationInfo.soundName = "default"
+            subscription.notificationInfo = notificationInfo
+            CKContainer.default().publicCloudDatabase.save(subscription) { returnedSubscription, returnedError in
+                if let error = returnedError {
+                    print("Failed to subscription, error: \(error)")
+                } else {
+                    print("Success to subscription.")
+                }
+            }
+        }
+    }
+    
+    func unsubscribeButtonPressed() {
+        CKContainer.default().publicCloudDatabase.delete(withSubscriptionID: "fruit_add_to_database") { returnedSubscriptionId, returnedError in
+            if let error = returnedError {
+                print("Failed to unsubscribe, error: \(error)")
+            } else {
+                print("Successfully unsubscribe notificaiton: \(returnedSubscriptionId ?? "").")
+            }
+        }
+    }
+    
 }
 
 struct CloudKitCRUDBootcamp: View {
@@ -154,30 +199,16 @@ struct CloudKitCRUDBootcamp: View {
         NavigationView {
             VStack {
                 header
+                HStack {
+                    subscribeButton
+                    Spacer()
+                    unsubscribeButton
+                }
                 textField
                 addButton
-                
-                List {
-                    ForEach(vm.fruits, id: \.self) { fruitModel in
-                        HStack {
-                            Text(fruitModel.name)
-                            
-                            if let imageURL = fruitModel.imageURL,
-                               let data = try? Data(contentsOf: imageURL),
-                               let image = UIImage(data: data) {
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .frame(width: 80, height: 80)
-                            }
-                        }
-                        .onTapGesture {
-                            self.currentSelectModel = fruitModel
-                            self.isPresented.toggle()
-                        }
-                    }
-                    .onDelete(perform: vm.deleteItem)
-                }
-                .listStyle(.plain)
+                listView
+                // TODO: 当textFieldAlert嵌套在NavigationView中时,navigationBarHidden需要设置在它前面
+                .navigationBarHidden(true)
                 .zzTextFieldAlert(isPresented: $isPresented,
                                   alertModel: ZZTextFieldAlertModel(title: "UPDATE FRUIT NAME", text: currentSelectModel?.name, acceptTitle: "UPDATE", action: { text in
                     guard let name = text, let fruit = currentSelectModel else { return }
@@ -186,7 +217,7 @@ struct CloudKitCRUDBootcamp: View {
                 }))
             }
             .padding()
-            .navigationBarHidden(true)
+//            .navigationBarHidden(true)
         }
     }
 }
@@ -203,6 +234,27 @@ extension CloudKitCRUDBootcamp {
         Text("CloudKit CRUD ☁️☁️☁️")
             .font(.headline)
             .underline()
+    }
+    
+    private var subscribeButton: some View {
+        Button {
+            vm.subscribeButtonPressed()
+        } label: {
+            Text("Subscribe")
+                .font(.headline)
+                .frame(height: 55)
+        }
+    }
+    
+    private var unsubscribeButton: some View {
+        Button {
+            vm.unsubscribeButtonPressed()
+        } label: {
+            Text("Unsubscribe")
+                .font(.headline)
+                .frame(height: 55)
+                .foregroundColor(.red)
+        }
     }
     
     private var textField: some View {
@@ -225,6 +277,35 @@ extension CloudKitCRUDBootcamp {
                 .foregroundColor(.white)
                 .cornerRadius(10)
         }
+    }
+    
+    private var listView: some View {
+        List {
+            ForEach(vm.fruits, id: \.self) { fruitModel in
+                HStack {
+                    Text(fruitModel.name)
+                        .frame(maxHeight:.infinity)
+                    
+                    if let imageURL = fruitModel.imageURL,
+                       let data = try? Data(contentsOf: imageURL),
+                       let image = UIImage(data: data) {
+                        Image(uiImage: image)
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                    }
+                    Spacer()
+                }
+                .frame(height: 44)
+                .frame(maxWidth:.infinity)
+                .background(Color.white)
+                .onTapGesture {
+                    self.currentSelectModel = fruitModel
+                    self.isPresented.toggle()
+                }
+            }
+            .onDelete(perform: vm.deleteItem)
+        }
+        .listStyle(.plain)
     }
     
 }
