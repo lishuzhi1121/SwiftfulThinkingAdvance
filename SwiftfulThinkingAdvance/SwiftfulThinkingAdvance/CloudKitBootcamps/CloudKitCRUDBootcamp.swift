@@ -7,20 +7,47 @@
 
 import SwiftUI
 import CloudKit
+import Combine
 
-struct FruitModel: Hashable {
+struct FruitModel: Hashable, CloudKitableProtocol {
     let name: String
     let imageURL: URL?
     let record: CKRecord
+    
+    init?(record: CKRecord) {
+        guard let name = record["name"] as? String else { return nil }
+        self.name = name
+        let imageAsset = record["image"] as? CKAsset
+        self.imageURL = imageAsset?.fileURL
+        self.record = record
+    }
+    
+    init?(name: String, imageURL: URL?) {
+        let record = CKRecord(recordType: "Fruits")
+        record["name"] = name
+        if let url = imageURL {
+            record["image"] = CKAsset(fileURL: url)
+        }
+        self.init(record: record)
+    }
+    
+    func update(newName: String) -> FruitModel? {
+        let record = record
+        record["name"] = newName
+        return FruitModel(record: record)
+    }
+    
 }
 
 class CloudKitCRUDBootcampViewModel: ObservableObject {
     @Published var text: String = ""
     @Published var fruits: [FruitModel] = [
-        FruitModel(name: "Apple", imageURL: nil, record: CKRecord(recordType: "Fruits")),
-        FruitModel(name: "Orange", imageURL: nil, record: CKRecord(recordType: "Fruits")),
-        FruitModel(name: "Bananer", imageURL: nil, record: CKRecord(recordType: "Fruits")),
+//        FruitModel(name: "Apple", imageURL: nil, record: CKRecord(recordType: "Fruits")),
+//        FruitModel(name: "Orange", imageURL: nil, record: CKRecord(recordType: "Fruits")),
+//        FruitModel(name: "Bananer", imageURL: nil, record: CKRecord(recordType: "Fruits")),
     ]
+    var cancellables = Set<AnyCancellable>()
+    
     
     func addButtonPressed() {
         guard !text.isEmpty else { return }
@@ -30,9 +57,6 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
     /// 增
     /// - Parameter name: 名称
     private func addItem(name: String) {
-        let newFruit = CKRecord(recordType: "Fruits")
-        newFruit["name"] = name
-        
         guard
             let image = UIImage(named: "background"),
             let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("background.png"),
@@ -40,93 +64,61 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
         
         do {
             try data.write(to: url)
-            newFruit["image"] = CKAsset(fileURL: url)
-            saveItem(record: newFruit)
+            guard let item = FruitModel(name: name, imageURL: url) else { return }
+            CloudKitUtility.add(item: item)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print("ERROR: \(error.localizedDescription)")
+                        break
+                    }
+                } receiveValue: { [weak self] record in
+                    print("RECORD: \(record.description)")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        self?.text = ""
+                        self?.fetchItems()
+                    }
+                }
+                .store(in: &cancellables)
+            
         } catch let error {
             print(error)
         }
     }
     
-    private func saveItem(record: CKRecord) {
-        CKContainer.default().publicCloudDatabase.save(record) { [weak self] returnedRecord, error in
-            print("RECORD: \(returnedRecord?.description ?? "")")
-            print("ERROR: \(error?.localizedDescription ?? "")")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                self?.text = ""
-                self?.fetchItems()
-            }
-        }
-    }
-    
     /// 查
     func fetchItems() {
-        var returnedItems: [FruitModel] = []
         // 1. 构建查询操作
-//        let predicate = NSPredicate(value: true)
-        let predicate = NSPredicate(format: "name = %@", argumentArray: ["Apple"])
-        let query = CKQuery(recordType: "Fruits", predicate: predicate)
-        // 设置查询结果排序方式
-        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let queryOperation = CKQueryOperation(query: query)
-        // 设置查询条数限制
-//        queryOperation.resultsLimit = 3
-        
-        // 2. 设置查询操作回调block
-        if #available(iOS 15.0, *) {
-            queryOperation.recordMatchedBlock = { (recordID, recordResult) in
-                switch recordResult {
-                case .success(let record):
-                    //record.creationDate
-                    guard let fruit = record["name"] as? String else { return }
-                    let imageAsset = record["image"] as? CKAsset
-                    let imageURL = imageAsset?.fileURL
-                    let model = FruitModel(name: fruit, imageURL: imageURL, record: record)
-                    returnedItems.append(model)
-                case .failure(let error):
-                    print("Error recordMatchedBlock: \(error)")
-                }
+        let predicate = NSPredicate(value: true)
+        CloudKitUtility.fetch(recordType: "Fruits", predicate: predicate)
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                
+            } receiveValue: { [weak self] (returnedItems: [FruitModel]) in
+                self?.fruits = returnedItems
             }
-        } else {
-            queryOperation.recordFetchedBlock = { fetchedRecord in
-                guard let fruit = fetchedRecord["name"] as? String else { return }
-                let imageAsset = fetchedRecord["image"] as? CKAsset
-                let imageURL = imageAsset?.fileURL
-                let model = FruitModel(name: fruit, imageURL: imageURL, record: fetchedRecord)
-                returnedItems.append(model)
-            }
-        }
-        // 3. 设置查询操作完成结果回调block
-        if #available(iOS 15.0, *) {
-            queryOperation.queryResultBlock = { [weak self] operationResult in
-                print("RESULT queryResultBlock: \(operationResult)")
-                DispatchQueue.main.async {
-                    self?.fruits = returnedItems
-                }
-            }
-        } else {
-            queryOperation.queryCompletionBlock = { [weak self] (returnedCursor, returnedError) in
-                print("RESULT queryCompletionBlock: \(returnedCursor?.description ?? "")")
-                DispatchQueue.main.async {
-                    self?.fruits = returnedItems
-                }
-            }
-        }
-        
-        // 4. 将查询操作添加到队列中
-        addOperation(operation: queryOperation)
-    }
-    
-    private func addOperation(operation: CKDatabaseOperation) {
-        CKContainer.default().publicCloudDatabase.add(operation)
+            .store(in: &cancellables)
     }
     
     /// 改
     /// - Parameter fruit: 记录模型对象
     func updateItem(fruit: FruitModel, name: String) {
-        let record = fruit.record
-        record["name"] = name
-        saveItem(record: record)
+        guard let newFruit = fruit.update(newName: name) else { return }
+        CloudKitUtility.update(item: newFruit)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("ERROR: \(error.localizedDescription)")
+                }
+            } receiveValue: { [weak self] record in
+                self?.fetchItems()
+            }
+            .store(in: &cancellables)
+
     }
     
     
@@ -135,13 +127,19 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
     func deleteItem(indexSet: IndexSet) {
         guard let index = indexSet.first else { return }
         let fruit = fruits[index]
-        let record = fruit.record
-        CKContainer.default().publicCloudDatabase.delete(withRecordID: record.recordID) { [weak self] returnedRecordID, returnedError in
-            guard returnedError == nil else { return }
-            DispatchQueue.main.async {
+        CloudKitUtility.delete(item: fruit)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("ERROR: \(error.localizedDescription)")
+                }
+            } receiveValue: { [weak self] recordId in
                 self?.fruits.remove(at: index)
             }
-        }
+            .store(in: &cancellables)
     }
     
     
@@ -163,30 +161,39 @@ class CloudKitCRUDBootcampViewModel: ObservableObject {
             }
             // 订阅通知
             let predicate = NSPredicate(value: true)
-            let subscription = CKQuerySubscription(recordType: "Fruits", predicate: predicate, subscriptionID: "fruit_add_to_database", options: .firesOnRecordCreation)
-            let notificationInfo = CKSubscription.NotificationInfo()
-            notificationInfo.title = "There's a new fruit!"
-            notificationInfo.alertBody = "Open the app to check your fruits."
-            notificationInfo.soundName = "default"
-            subscription.notificationInfo = notificationInfo
-            CKContainer.default().publicCloudDatabase.save(subscription) { returnedSubscription, returnedError in
-                if let error = returnedError {
-                    print("Failed to subscription, error: \(error)")
-                } else {
+            CloudKitUtility.subscribe(recordType: "Fruits",
+                                      predicate: predicate,
+                                      subscriptionID: "fruit_add_to_database",
+                                      options: .firesOnRecordCreation,
+                                      title: "There's a new fruit!",
+                                      body: "Open the app to check your fruits.")
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print("Failed to subscription, error: \(error)")
+                    }
+                } receiveValue: { success in
                     print("Success to subscription.")
                 }
-            }
+                .store(in: &self.cancellables)
         }
     }
     
     func unsubscribeButtonPressed() {
-        CKContainer.default().publicCloudDatabase.delete(withSubscriptionID: "fruit_add_to_database") { returnedSubscriptionId, returnedError in
-            if let error = returnedError {
-                print("Failed to unsubscribe, error: \(error)")
-            } else {
-                print("Successfully unsubscribe notificaiton: \(returnedSubscriptionId ?? "").")
+        CloudKitUtility.unsubscribe(subscriptionID: "fruit_add_to_database")
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Failed to unsubscribe, error: \(error)")
+                }
+            } receiveValue: { success in
+                print("Successfully unsubscribe notificaiton.")
             }
-        }
+            .store(in: &cancellables)
     }
     
 }

@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
-import CloudKit
+import Combine
 
 class CloudKitBootcampViewModel: ObservableObject {
     @Published var isSignedInToiCloud: Bool = false
     @Published var error: String = ""
     @Published var permissionStatus: Bool = false
     @Published var userName: String = ""
+    var cancellables = Set<AnyCancellable>()
     
     init() {
         // 1. 检查iCloud当前可用状态
@@ -20,79 +21,57 @@ class CloudKitBootcampViewModel: ObservableObject {
         // 2. 请求iCloud授权
         requestiCloudPermission()
         // 3. 查询用户信息
-        fetchiCloudUserRecordID()
+        getiCloudCurrentUserIdentity()
     }
     
     private func getiCloudStatus() {
-        CKContainer.default().accountStatus { [weak self] status, error in
-            DispatchQueue.main.async {
-                switch status {
-                case .available:
-                    self?.isSignedInToiCloud = true
-                case .noAccount:
-                    self?.isSignedInToiCloud = false
-                    self?.error = CloudKitError.iCloudAccountNotFound.rawValue
-                case .couldNotDetermine:
-                    self?.isSignedInToiCloud = false
-                    self?.error = CloudKitError.iCloudAccountNotDetermine.rawValue
-                case .restricted:
-                    self?.isSignedInToiCloud = false
-                    self?.error = CloudKitError.iCloudAccountRestricted.rawValue
-                default:
-                    self?.isSignedInToiCloud = false
-                    self?.error = CloudKitError.iCloudAccountUnknown.rawValue
+        CloudKitUtility.getiCloudStatus()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] compeltion in
+                switch compeltion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    self?.error = error.localizedDescription
                 }
+            } receiveValue: { [weak self] status in
+                self?.isSignedInToiCloud = status
             }
-        }
-    }
-    
-    enum CloudKitError: String, LocalizedError {
-        case iCloudAccountNotFound
-        case iCloudAccountNotDetermine
-        case iCloudAccountRestricted
-        case iCloudAccountUnknown
+            .store(in: &cancellables)
     }
     
     func requestiCloudPermission() {
-        CKContainer.default().requestApplicationPermission([.userDiscoverability]) { [weak self] permissionStatus, error in
-            DispatchQueue.main.async {
-                switch permissionStatus {
-                case .granted:
-                    self?.permissionStatus = true
-                case .denied:
-                    self?.permissionStatus = false
-                default:
+        CloudKitUtility.requestiCloudPermission()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
                     break
                 }
+            } receiveValue: { [weak self] permission in
+                self?.permissionStatus = permission
             }
-        }
+            .store(in: &cancellables)
     }
     
-    
-    func fetchiCloudUserRecordID() {
-        CKContainer.default().fetchUserRecordID {[weak self] recordID, error in
-            if let id = recordID {
-                self?.discoveriCloudUser(id: id)
-            }
-        }
-    }
-    
-    private func discoveriCloudUser(id: CKRecord.ID) {
-        CKContainer.default().discoverUserIdentity(withUserRecordID: id) { [weak self] userIdentity, error in
-            DispatchQueue.main.async {
-                if let name = userIdentity?.nameComponents?.givenName {
-                    self?.userName = name
+    func getiCloudCurrentUserIdentity() {
+        CloudKitUtility.discoveriCloudUserIdentity()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-                // 通过什么方式查询用户信息,lookupInfo里就只有对应的属性有值,其他的为空
-                // 例如上面代码通过UserRecordID查询的,则lookupInfo里就只有userRecordID有值
-                // 其他的 emailAddress/phoneNumber 为空
-                //userIdentity?.lookupInfo?.userRecordID
-                //userIdentity?.lookupInfo?.emailAddress
-                //userIdentity?.lookupInfo?.phoneNumber
+            } receiveValue: { [weak self] name in
+                self?.userName = name
             }
-        }
+            .store(in: &cancellables)
     }
-    
     
 }
 
